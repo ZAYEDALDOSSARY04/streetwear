@@ -43,6 +43,7 @@ export default function CheckoutPage() {
   }
 
   async function handleCheckout() {
+    if (!session) { router.push('/login?callbackUrl=/checkout'); return }
     const e = validate()
     if (Object.keys(e).length > 0) { setErrors(e); return }
     setPlacing(true)
@@ -91,9 +92,12 @@ export default function CheckoutPage() {
       </div>
 
       {!session && (
-        <div className="bg-accent/5 border border-accent/20 p-4 mb-6 flex items-center justify-between">
-          <p className="text-sm text-muted">Sign in to track your orders</p>
-          <Link href="/login" className="btn-ghost text-sm py-2 px-4">Sign In</Link>
+        <div className="bg-accent/10 border border-accent/40 p-5 mb-6 flex items-center justify-between">
+          <div>
+            <p className="font-display font-bold text-sm">Sign in required to place an order</p>
+            <p className="font-mono text-[10px] text-muted mt-0.5">You need an account to track and manage your orders</p>
+          </div>
+          <Link href="/login?callbackUrl=/checkout" className="btn-accent text-sm py-2.5 px-5 flex-shrink-0">Sign In</Link>
         </div>
       )}
 
