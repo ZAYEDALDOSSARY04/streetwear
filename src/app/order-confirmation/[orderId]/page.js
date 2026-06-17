@@ -73,7 +73,7 @@ export default async function OrderConfirmationPage({ params }) {
       )}
 
       <div className="bg-accent/5 border border-accent/20 p-4 mb-8">
-        <p className="font-mono text-[10px] text-accent uppercase tracking-wider mb-1">StreetMap Promise</p>
+        <p className="font-mono text-[10px] text-accent uppercase tracking-wider mb-1">Origin Wear Promise</p>
         <p className="text-muted text-sm">10% of your purchase supports the local shop owner. Thank you. 🙏</p>
       </div>
 

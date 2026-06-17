@@ -13,7 +13,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-40 bg-bg/95 backdrop-blur border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
         <Link href="/" className="font-display font-bold text-lg tracking-tight select-none">
-          <span className="text-primary">STREET</span><span className="text-accent">MAP</span>
+          <span className="text-primary">ORIGIN</span><span className="text-accent"> WEAR</span>
         </Link>
 
         <div className="hidden sm:flex items-center gap-6">

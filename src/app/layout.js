@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar'
 import CartSidebar from '@/components/CartSidebar'
 
 export const metadata = {
-  title: 'STREETMAP — Discover Local Streetwear',
+  title: 'ORIGIN WEAR — Discover Local Streetwear',
   description: 'Shop local streetwear stores by city. Bahrain, Saudi Arabia, UAE and beyond.',
 }
 

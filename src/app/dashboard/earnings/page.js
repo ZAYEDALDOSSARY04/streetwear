@@ -42,7 +42,7 @@ export default async function EarningsPage() {
         <div className="bg-border/30 border border-border p-6">
           <p className="section-label mb-3">Platform Fee (10%)</p>
           <p className="font-display font-black text-3xl text-red-400">−{currency} {platformFee.toFixed(0)}</p>
-          <p className="font-mono text-[10px] text-muted mt-1">StreetMap commission</p>
+          <p className="font-mono text-[10px] text-muted mt-1">Origin Wear commission</p>
         </div>
         <div className="bg-accent/5 border border-accent/30 p-6">
           <p className="section-label mb-3">Your Net Earnings</p>

@@ -17,7 +17,7 @@ export default function VerifyEmailPage() {
             <p className="section-label mb-2">What happens next?</p>
             <ol className="space-y-2 text-sm text-muted">
               <li>1. Verify your email address</li>
-              <li>2. StreetMap reviews your shop (within 24h)</li>
+              <li>2. Origin Wear reviews your shop (within 24h)</li>
               <li>3. You receive approval + dashboard access</li>
               <li>4. Add products and start selling</li>
             </ol>

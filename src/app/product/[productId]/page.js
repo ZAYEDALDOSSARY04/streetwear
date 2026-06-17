@@ -71,7 +71,7 @@ export default async function ProductDetailPage({ params }) {
             </div>
             <div className="flex items-start gap-3">
               <span className="text-accent mt-0.5">◈</span>
-              <div><p className="font-display font-semibold text-sm">StreetMap Verified</p><p className="text-muted text-xs mt-0.5">Sold by {product.shop.name} · Real local shop</p></div>
+              <div><p className="font-display font-semibold text-sm">Origin Wear Verified</p><p className="text-muted text-xs mt-0.5">Sold by {product.shop.name} · Real local shop</p></div>
             </div>
           </div>
         </div>

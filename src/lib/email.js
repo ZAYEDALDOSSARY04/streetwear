@@ -5,7 +5,7 @@ function getResend() {
 }
 
 function getFrom() {
-  return process.env.RESEND_FROM_EMAIL || 'StreetMap <onboarding@resend.dev>'
+  return process.env.RESEND_FROM_EMAIL || 'Origin Wear <onboarding@resend.dev>'
 }
 
 export async function sendOrderConfirmation({ to, orderNumber, items, total, currency, shippingAddress }) {
@@ -16,7 +16,7 @@ export async function sendOrderConfirmation({ to, orderNumber, items, total, cur
   return getResend().emails.send({
     from: getFrom(),
     to,
-    subject: `Order Confirmed — ${orderNumber} | StreetMap`,
+    subject: `Order Confirmed — ${orderNumber} | Origin Wear`,
     html: `
       <h2>Your order is confirmed ✓</h2>
       <p>Order: <strong>${orderNumber}</strong></p>
@@ -27,7 +27,7 @@ export async function sendOrderConfirmation({ to, orderNumber, items, total, cur
       <p><strong>Total: ${currency} ${total}</strong></p>
       <p>Shipping to: ${shippingAddress.address}, ${shippingAddress.city}, ${shippingAddress.country}</p>
       <p>Thank you for supporting local streetwear. 10% of your purchase goes directly to the shop owner.</p>
-      <p>— StreetMap Team</p>
+      <p>— Origin Wear Team</p>
     `,
   })
 }
@@ -53,9 +53,9 @@ export async function sendVerificationEmail({ to, name, token }) {
   return getResend().emails.send({
     from: getFrom(),
     to,
-    subject: 'Verify your StreetMap account',
+    subject: 'Verify your Origin Wear account',
     html: `
-      <h2>Welcome to StreetMap, ${name}!</h2>
+      <h2>Welcome to Origin Wear, ${name}!</h2>
       <p>Click the link below to verify your email address:</p>
       <a href="${link}" style="background:#E8FF00;color:#0A0A0A;padding:12px 24px;text-decoration:none;font-weight:bold;display:inline-block">Verify Email</a>
       <p>Link expires in 24 hours.</p>

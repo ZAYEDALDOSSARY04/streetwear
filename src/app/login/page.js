@@ -61,8 +61,8 @@ export default function LoginPage() {
           <div className="bg-surface border border-border p-3 text-left">
             <p className="section-label mb-2">Demo accounts</p>
             <div className="space-y-1 font-mono text-[10px] text-muted">
-              <p>Shop: manama@streetmap.com / Shop1234!</p>
-              <p>Admin: admin@streetmap.com / Admin1234!</p>
+              <p>Shop: manama@origin-wear.com / Shop1234!</p>
+              <p>Admin: admin@origin-wear.com / Admin1234!</p>
             </div>
           </div>
         </div>

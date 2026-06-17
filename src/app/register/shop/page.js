@@ -115,16 +115,16 @@ export default function RegisterShopPage() {
             <div className="bg-bg border border-border p-4 space-y-3 text-sm">
               <p className="font-display font-bold">Commission Terms</p>
               <ul className="space-y-2 text-muted">
-                <li>• StreetMap charges <span className="text-accent font-bold">10% commission</span> on every sold item</li>
+                <li>• Origin Wear charges <span className="text-accent font-bold">10% commission</span> on every sold item</li>
                 <li>• Payouts are processed every <span className="text-primary">2 weeks</span> to your registered bank account</li>
                 <li>• You are responsible for shipping orders within 3 business days of confirmation</li>
-                <li>• StreetMap handles payment processing, platform hosting, and customer support</li>
+                <li>• Origin Wear handles payment processing, platform hosting, and customer support</li>
                 <li>• Your shop will be reviewed and approved within 24 hours</li>
               </ul>
             </div>
             <label className="flex items-start gap-3 cursor-pointer">
               <input type="checkbox" checked={form.agreed} onChange={e => setField('agreed', e.target.checked)} className="mt-0.5 w-4 h-4 accent-[#E8FF00]" />
-              <span className="text-sm text-muted">I agree to the StreetMap commission terms and platform policies</span>
+              <span className="text-sm text-muted">I agree to the Origin Wear commission terms and platform policies</span>
             </label>
           </>}
 

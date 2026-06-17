@@ -153,7 +153,7 @@ export default function CheckoutPage() {
               <div className="bg-surface border border-border p-4 mb-5">
                 <p className="section-label mb-3">Bank Details</p>
                 <div className="space-y-1.5 text-sm">
-                  <div className="flex gap-3"><span className="text-muted w-20">Bank</span><span>StreetMap Payments LLC</span></div>
+                  <div className="flex gap-3"><span className="text-muted w-20">Bank</span><span>Origin Wear Payments LLC</span></div>
                   <div className="flex gap-3"><span className="text-muted w-20">IBAN</span><span className="font-mono">BH01 SMAP 0000 0000 0000 00</span></div>
                   <div className="flex gap-3"><span className="text-muted w-20">Reference</span><span>Your order number (shown after placing)</span></div>
                 </div>

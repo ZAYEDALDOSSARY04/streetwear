@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { authOptions } from '@/lib/auth'
 import DashboardSidebar from '@/components/dashboard/DashboardSidebar'
 
-export const metadata = { title: 'Dashboard — StreetMap' }
+export const metadata = { title: 'Dashboard — Origin Wear' }
 
 export default async function DashboardLayout({ children }) {
   const session = await getServerSession(authOptions)
