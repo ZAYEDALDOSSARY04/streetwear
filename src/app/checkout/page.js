@@ -33,22 +33,14 @@ export default function CheckoutPage() {
     if (session?.user?.email) setForm(f => ({ ...f, email: session.user.email }))
   }, [session])
 
-  async function createPaymentIntent() {
-    if (!items.length) return
-    const res = await fetch('/api/payments/create-intent', {
+  useEffect(() => {
+    if (payMethod !== 'card' || !items.length || !session) return
+    fetch('/api/payments/create-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ items: items.map(i => ({ productId: i.product.id, quantity: i.quantity })) }),
-    })
-    if (res.ok) {
-      const { clientSecret: cs } = await res.json()
-      setClientSecret(cs)
-    }
-  }
-
-  useEffect(() => {
-    if (payMethod === 'card' && items.length > 0 && session) createPaymentIntent()
-  }, [payMethod, session])
+    }).then(r => r.ok ? r.json() : null).then(d => { if (d?.clientSecret) setClientSecret(d.clientSecret) })
+  }, [payMethod, session, items.length]) // eslint-disable-line react-hooks/exhaustive-deps
 
   function validate() {
     const e = {}
