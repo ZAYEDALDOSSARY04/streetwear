@@ -1,30 +1,31 @@
 'use client'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCartStore } from '@/store/cartStore'
 
 export default function CartSidebar() {
-  const items      = useCartStore(s => s.items)
-  const isOpen     = useCartStore(s => s.isOpen)
-  const remove     = useCartStore(s => s.removeFromCart)
-  const updateQty  = useCartStore(s => s.updateQuantity)
-  const router     = useRouter()
-  const subtotal   = items.reduce((s, i) => s + i.product.price * i.quantity, 0)
-  const shipping   = items.length > 0 && subtotal <= 200 ? 10 : 0
-  const currency   = items[0]?.product.currency ?? ''
+  const items     = useCartStore(s => s.items)
+  const isOpen    = useCartStore(s => s.isOpen)
+  const remove    = useCartStore(s => s.removeFromCart)
+  const updateQty = useCartStore(s => s.updateQuantity)
+  const closeCart = useCartStore(s => s.closeCart)
+  const router    = useRouter()
+
+  const subtotal = items.reduce((s, i) => s + i.product.price * i.quantity, 0)
+  const shipping = items.length > 0 && subtotal <= 200 ? 10 : 0
+  const currency = items[0]?.product.currency ?? ''
 
   if (!isOpen) return null
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/70 z-50" onClick={() => useCartStore.setState({ isOpen: false })} />
+      <div className="fixed inset-0 bg-black/70 z-50" onClick={closeCart} />
       <div className="fixed right-0 top-0 h-full w-full max-w-sm bg-surface border-l border-border z-50 flex flex-col">
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
           <div>
             <p className="section-label">Your Cart</p>
             <p className="font-display font-bold text-lg">{items.length} {items.length === 1 ? 'item' : 'items'}</p>
           </div>
-          <button onClick={() => useCartStore.setState({ isOpen: false })} className="w-8 h-8 flex items-center justify-center border border-border hover:border-accent text-muted hover:text-primary transition-colors">✕</button>
+          <button onClick={closeCart} className="w-8 h-8 flex items-center justify-center border border-border hover:border-accent text-muted hover:text-primary transition-colors">✕</button>
         </div>
 
         <div className="flex-1 overflow-y-auto py-4 px-5 space-y-4">
@@ -61,8 +62,8 @@ export default function CartSidebar() {
             <div className="flex justify-between font-display font-bold text-base border-t border-border pt-2">
               <span>Total</span><span className="text-accent">{currency} {(subtotal + shipping).toFixed(0)}</span>
             </div>
-            <button onClick={() => { useCartStore.setState({ isOpen: false }); router.push('/checkout') }} className="btn-accent w-full text-center">Checkout</button>
-            <button onClick={() => { useCartStore.setState({ isOpen: false }); router.push('/cart') }} className="btn-ghost w-full text-center text-sm">View Full Cart</button>
+            <button onClick={() => { closeCart(); router.push('/checkout') }} className="btn-accent w-full text-center">Checkout</button>
+            <button onClick={() => { closeCart(); router.push('/cart') }} className="btn-ghost w-full text-center text-sm">View Full Cart</button>
           </div>
         )}
       </div>

@@ -27,6 +27,6 @@ export const useCartStore = create((set, get) => ({
 
   clearCart() { set({ items: [] }) },
 
-  get cartCount() { return get().items.reduce((s, i) => s + i.quantity, 0) },
-  get cartSubtotal() { return get().items.reduce((s, i) => s + i.product.price * i.quantity, 0) },
+  openCart()  { set({ isOpen: true }) },
+  closeCart() { set({ isOpen: false }) },
 }))
