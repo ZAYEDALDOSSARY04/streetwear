@@ -2,26 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0A0A0A;
+    color: #F5F5F5;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
   }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0A0A0A; }
+  ::-webkit-scrollbar-thumb { background: #2A2A2A; }
+  ::-webkit-scrollbar-thumb:hover { background: #E8FF00; }
+  ::selection { background: #E8FF00; color: #0A0A0A; }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .btn-accent {
+    @apply bg-accent text-bg font-display font-bold uppercase px-6 py-3 transition-all duration-150 cursor-pointer border-0 inline-block text-sm;
+    letter-spacing: 0.1em;
   }
+  .btn-accent:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .btn-accent:disabled { @apply opacity-40 cursor-not-allowed; transform: none; }
+
+  .btn-ghost {
+    @apply bg-transparent text-primary font-display font-semibold uppercase px-6 py-3 border border-border transition-all duration-150 cursor-pointer inline-block text-sm;
+    letter-spacing: 0.1em;
+  }
+  .btn-ghost:hover { @apply border-accent text-accent; }
+  .btn-ghost:disabled { @apply opacity-40 cursor-not-allowed; }
+
+  .tag {
+    @apply font-mono text-[10px] uppercase px-2 py-0.5 border border-border text-muted;
+    letter-spacing: 0.08em;
+  }
+  .tag.active { @apply border-accent text-accent bg-accent/5; }
+
+  .input-dark {
+    @apply bg-surface border border-border text-primary px-4 py-3 w-full outline-none font-body transition-colors duration-150 text-sm;
+  }
+  .input-dark:focus { @apply border-accent; }
+  .input-dark::placeholder { @apply text-muted; }
+
+  .card { @apply bg-surface border border-border transition-all duration-200; }
+  .card:hover { @apply border-accent/40; }
+
+  .section-label { @apply font-mono text-[10px] uppercase tracking-widest text-muted; }
 }
